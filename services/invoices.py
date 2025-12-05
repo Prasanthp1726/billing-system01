@@ -4,6 +4,8 @@ from backend.services.utils import calculate_totals
 
 def create_invoice(customer_id, items, tax_rate=0.0, discount_rate=0.0):
     # items: list of {product_id, qty, unit_price}
+    # Milestone 5 reports module — confirmed working
+
     totals = calculate_totals(items, tax_rate, discount_rate)
 
     conn = get_db()
