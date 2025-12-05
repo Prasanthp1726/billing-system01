@@ -5,6 +5,8 @@ from flask import request, jsonify
 from backend.models import db
 import sqlalchemy
 
+# Milestone 5 reports module — confirmed working
+
 bp = Blueprint("reports", __name__, url_prefix="/api/reports")
 
 @bp.route("/customer-balance", methods=["GET"])
