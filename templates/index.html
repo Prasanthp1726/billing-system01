@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Billing System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <nav>
+        <a href="{{ url_for('customers_page') }}">Customers</a>
+        <a href="{{ url_for('products_page') }}">Products</a>
+        <a href="{{ url_for('invoices_page') }}">Invoices</a>
+        <a href="{{ url_for('payments_page') }}">Payments</a>
+        <a href="{{ url_for('reports_page') }}">Reports</a>
+    </nav>
+    <div class="container">
+        <h1>Welcome to Billing System</h1>
+        <p>Select a module from the navigation bar above.</p>
+    </div>
+</body>
+
+</html>

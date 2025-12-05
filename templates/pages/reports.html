@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reports</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .card {
+            background: #f7f7f7;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .card h3 {
+            margin: 0 0 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .controls {
+            margin-bottom: 10px;
+        }
+
+        .muted {
+            color: #666;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/customers">Customers</a>
+        <a href="/products">Products</a>
+        <a href="/invoices">Invoices</a>
+        <a href="/payments">Payments</a>
+        <a href="/reports">Reports</a>
+    </nav>
+
+    <div class="container">
+        <h2>Reports</h2>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3>Customer balance</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Invoiced</th>
+                            <th>Paid</th>
+                            <th>Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="balanceTable">
+                        <tr>
+                            <td colspan="4" class="muted">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Sales summary</h3>
+                <table>
+                    <tbody id="salesSummary">
+                        <tr>
+                            <td class="muted">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Top products</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Qty sold</th>
+                        </tr>
+                    </thead>
+                    <tbody id="topProductsTable">
+                        <tr>
+                            <td colspan="2" class="muted">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h3>Customer statement</h3>
+                <div class="controls">
+                    <form id="statementForm">
+                        <input name="customer_id" type="number" placeholder="Customer ID" required />
+                        <button type="submit">Load</button>
+                    </form>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Invoice</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="statementTable">
+                        <tr>
+                            <td colspan="3" class="muted">Select a customer and load.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/reports.js') }}"></script>
+</body>
+
+</html>

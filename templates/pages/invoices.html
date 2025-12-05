@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Invoices</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .items-wrap {
+            margin-top: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/customers">Customers</a>
+        <a href="/products">Products</a>
+        <a href="/invoices">Invoices</a>
+        <a href="/payments">Payments</a>
+        <a href="/reports">Reports</a>
+    </nav>
+
+    <div class="container">
+        <h2>Invoice Management</h2>
+
+        <form id="invoiceForm">
+            <label>Customer ID</label>
+            <input name="customer_id" type="number" placeholder="Customer ID" required />
+
+            <label>Tax %</label>
+            <input name="tax_rate" type="number" step="0.01" placeholder="Tax rate" />
+
+            <label>Discount %</label>
+            <input name="discount_rate" type="number" step="0.01" placeholder="Discount rate" />
+
+            <div class="items-wrap" id="items"></div>
+            <button type="button" id="addItemBtn">Add Item</button>
+            <button type="submit">Create Invoice</button>
+        </form>
+
+        <hr />
+
+        <table id="invoiceTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Customer</th>
+                    <th>Grand Total</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        // Add item row builder
+        const itemsDiv = document.getElementById("items");
+        const addBtn = document.getElementById("addItemBtn");
+        if (addBtn) {
+            addBtn.addEventListener("click", () => {
+                const row = document.createElement("div");
+                row.className = "grid-3";
+                row.innerHTML = `
+          <input name="product_id[]" type="number" placeholder="Product ID" required />
+          <input name="qty[]" type="number" min="1" placeholder="Qty" required />
+          <input name="price[]" type="number" step="0.01" placeholder="Override Price (optional)" />
+        `;
+                itemsDiv.appendChild(row);
+            });
+        }
+
+        attachInvoiceForm();
+        loadInvoices();
+    </script>
+</body>
+
+</html>

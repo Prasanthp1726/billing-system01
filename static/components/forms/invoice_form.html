@@ -1,0 +1,15 @@
+<form id="invoiceForm">
+    <h3>Create Invoice</h3>
+    <input type="number" name="customer_id" placeholder="Customer ID" required><br><br>
+    <input type="number" name="tax_rate" placeholder="Tax Rate (%)"><br><br>
+    <input type="number" name="discount_rate" placeholder="Discount (%)"><br><br>
+
+    <div id="items">
+        <div class="grid-3">
+            <input type="number" name="items[0][product_id]" placeholder="Product ID" required>
+            <input type="number" name="items[0][qty]" placeholder="Quantity" required>
+            <input type="number" name="items[0][price]" placeholder="Price (optional)">
+        </div>
+    </div>
+    <button type="submit">Create Invoice</button>
+</form>

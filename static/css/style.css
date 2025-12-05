@@ -1,0 +1,66 @@
+/* Use the stylesheet I provided earlier (kept concise here) */
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f7f9fc;
+}
+
+nav {
+    display: flex;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+nav a {
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+th,
+td {
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+    text-align: left;
+}
+
+input,
+button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+button {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1e40af;
+}
